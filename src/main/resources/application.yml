@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: dev
+  aop:
+    proxy-target-class: true
+
+server:
+  port: 8880
+
+eazyproxy:
+  log: true
+  forward:
+    client-ip: true
+    url-fragment: true
+  preserve:
+    host: true
+    cookies: true
+    headers: true
+  handle:
+    redirects: true
+    error: true
+  timeout-millis:
+    connect: 3000
+    read: 60000
+  prefix: /api
+  stripPrefix: true
+  routes:
+    stack-overflow:
+      path: /questions/**
+      url: https://stackoverflow.com
+      stripPrefix: false
+    google:
+      path: /search/**
+      url: https://www.google.com
+      stripPrefix: false
+    jsonplaceholder:
+      path: /placeholder/**
+      url: http://jsonplaceholder.typicode.com
+      stripPrefix: true
+    github:
+      path: /git/**
+      url: https://api.github.com/_private
+      stripPrefix: true

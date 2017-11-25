@@ -1,0 +1,5 @@
+## Starter file for Proxy
+spring:
+  application:
+    name: eazy-proxy
+    description: A simple Reverse Proxy.
